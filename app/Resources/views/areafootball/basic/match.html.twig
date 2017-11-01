@@ -1,0 +1,33 @@
+{% block contentupdate %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    MATCH
+                </div>
+                <div class="panel-body">
+                    <h4>Players:</h4>
+                    {% for player in match.players %}
+                        <p> {{ player.team }}:
+                            {% for p in player.player %}
+                                {{ p }}
+                            {% endfor %}
+                        </p>
+                    {% endfor %}
+                </div>
+                <div class="panel-body">
+                    <h4>Goals:</h4>
+                    {% for goal in match.goals %}
+                        <p> {{ goal.player }} - {{ goal.time }}</p>
+                    {% endfor %}
+                </div>
+                <div class="panel-body">
+                    <h4>Yellow Cards:</h4>
+                    {% for ye in match.yellowcards %}
+                        <p> {{ ye.player }} - {{ ye.time }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

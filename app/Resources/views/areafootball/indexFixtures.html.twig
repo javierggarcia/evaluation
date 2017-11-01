@@ -1,0 +1,13 @@
+{% extends 'areafootball/layout.html.twig' %}
+{% block subtitle %}
+    Fixtures
+{% endblock %}
+{% block content %}
+    {% for entry in fixtures_entries %}
+        <a href={{path('match_read',{'id_match':entry.idmatch})}}><i class="fa fa-bar-chart-o fa-fw"></i> Match</a>
+        {{ include('areafootball/basic/fixtures.html.twig', {'fixture': entry} ) }}
+    {% endfor %}
+{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('css/areafootball/index.css') }}" rel="stylesheet" />
+{% endblock %}
